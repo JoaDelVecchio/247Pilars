@@ -7,9 +7,9 @@ export const MainLayout = () => {
       <header className="h-22 w-full flex bg-white shadow-md  justify-center items-center">
         <Navbar />
       </header>
-      <main className="flex flex-grow">
+      <div className="p-8">
         <Outlet />
-      </main>
+      </div>
     </div>
   );
 };
