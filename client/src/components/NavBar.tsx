@@ -3,17 +3,20 @@ import { useEffect, useState } from "react";
 
 const Navbar = () => {
   const commonClass =
-    "border-1 rounded-lg transition duration-300 flex justify-center items-center";
-  const activeClass = "bg-black text-white font-extrabold w-24 h-12";
+    "rounded-full transition duration-300 flex justify-center items-center";
+  const activeClass =
+    "bg-black text-white font-extrabold w-28 h-10 shadow-md transform scale-105";
   const inactiveClass =
-    "w-24 h-12 hover:bg-black hover:text-white hover:font-extrabold";
+    "w-28 h-10 text-gray-700 hover:bg-gray-200 hover:text-black hover:font-extrabold";
 
   const [offset, setOffset] = useState(0); // Background position
   const location = useLocation(); // Track current route
 
   // Function to update the background position
   const updateOffset = () => {
-    const activeLink = document.querySelector(".nav-item.active");
+    const activeLink = document.querySelector(
+      ".nav-item.active"
+    ) as HTMLElement;
     if (activeLink) {
       setOffset(activeLink.offsetLeft); // Update the offsetLeft of the active link
     }
@@ -31,12 +34,12 @@ const Navbar = () => {
   }, []);
 
   return (
-    <nav className="relative">
+    <nav className="relative w-full rounded-xl">
       {/* Animated background */}
       <div
-        className="absolute top-0 h-12 bg-black rounded-lg transition-all duration-300"
+        className="absolute top-0 h-10 bg-black rounded-full transition-all duration-300 shadow-md"
         style={{
-          width: "6rem", // Match the link width
+          width: "7rem", // Match the link width
           transform: `translateX(${offset}px)`,
         }}
       ></div>
