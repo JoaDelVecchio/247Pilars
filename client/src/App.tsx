@@ -1,11 +1,11 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./routes/Home";
-import FitnessProgressPage from "./routes/FitnessProgressPage";
-import FitnessFuelPage from "./routes/FitnessFuelPage";
+import FitnessProgressPage from "./routes/FitnessPage/FitnessProgressPage/FitnessProgressPage";
+import FitnessFuelPage from "./routes/FitnessPage/FitnessFuelPage/FitnessFuelPage";
 import { MainLayout } from "./routes/Layout";
 import PlanPage from "./routes/PlanPage";
 import FitnessNavBar from "./components/FitnessNavBar";
-import FitnessWorkoutsPage from "./routes/FitnessWorkoutsPage";
+import FitnessWorkoutsPage from "./routes/FitnessPage/FitnessWorkoutPage/FitnessWorkoutsPage";
 
 const App = () => {
   const router = createBrowserRouter([

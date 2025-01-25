@@ -1,6 +1,6 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 
-const FitnessWorkoutsPage = () => {
+const DisplayWeekOrDayWorkout = () => {
   const commonClass =
     "px-6 py-2 text-center rounded-full border-2 transition-all duration-300";
   const activeClass = "bg-black text-white border-black font-bold";
@@ -31,40 +31,40 @@ const FitnessWorkoutsPage = () => {
     return () =>
       window.removeEventListener("resize", updateSecondaryBackground);
   }, [view]);
+  {
+    /* Secondary Navigation */
+  }
 
   return (
-    <div className="flex flex-col w-full items-center">
-      {/* Secondary Navigation */}
-      <nav className="relative w-full flex justify-center">
-        {/* Animated Background */}
-        <div
-          className="absolute h-10 bg-black rounded-full transition-all duration-300"
-          style={{
-            left: `${secondaryStyle.left}px`,
-            width: `${secondaryStyle.width}px`,
-          }}
-        ></div>
-        <ul className="flex gap-4 relative z-10 secondary-nav">
-          <button
-            onClick={() => setView("week")}
-            className={`${commonClass} ${
-              view === "week" ? "week " + activeClass : inactiveClass
-            }`}
-          >
-            Week
-          </button>
-          <button
-            onClick={() => setView("today")}
-            className={`${commonClass} ${
-              view === "today" ? "today " + activeClass : inactiveClass
-            }`}
-          >
-            Today
-          </button>
-        </ul>
-      </nav>
-    </div>
+    <nav className="relative w-full flex justify-center">
+      {/* Animated Background */}
+      <div
+        className="absolute h-10 bg-black rounded-full transition-all duration-300"
+        style={{
+          left: `${secondaryStyle.left}px`,
+          width: `${secondaryStyle.width}px`,
+        }}
+      ></div>
+      <ul className="flex gap-4 relative z-10 secondary-nav">
+        <button
+          onClick={() => setView("week")}
+          className={`${commonClass} ${
+            view === "week" ? "week " + activeClass : inactiveClass
+          }`}
+        >
+          Week
+        </button>
+        <button
+          onClick={() => setView("today")}
+          className={`${commonClass} ${
+            view === "today" ? "today " + activeClass : inactiveClass
+          }`}
+        >
+          Today
+        </button>
+      </ul>
+    </nav>
   );
 };
 
-export default FitnessWorkoutsPage;
+export default DisplayWeekOrDayWorkout;
