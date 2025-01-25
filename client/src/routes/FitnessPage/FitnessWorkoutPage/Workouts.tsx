@@ -1,5 +1,5 @@
 import { Workout as WorkoutType } from "../../../types/types";
-import Workout from "./Workout";
+import Workout from "./WorkoutCard";
 
 const Workouts = ({ workouts }: { workouts: WorkoutType[] }) => {
   return (
