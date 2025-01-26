@@ -1,15 +1,15 @@
-import { Workout } from "../types/types";
+import { Workout } from '../types/types';
 
 export const workoutsMockData: Workout[] = [
   {
-    id: "w1",
-    userId: "u1",
-    title: "Push Day",
-    dayOfWeek: "Monday",
+    id: 'w1',
+    userId: 'u1',
+    title: 'Push Day',
+    dayOfWeek: 'Monday',
     exercises: [
       {
-        name: "Bench Press",
-        notes: "Focus on form, increase weight gradually",
+        name: 'Bench Press',
+        notes: 'Focus on form, increase weight gradually',
         reps: [
           { numberOfReps: 10, weight: 100 },
           { numberOfReps: 8, weight: 110 },
@@ -18,8 +18,8 @@ export const workoutsMockData: Workout[] = [
         ],
       },
       {
-        name: "Incline Dumbbell Press",
-        notes: "Maintain constant tension on chest",
+        name: 'Incline Dumbbell Press',
+        notes: 'Maintain constant tension on chest',
         reps: [
           { numberOfReps: 12, weight: 50 },
           { numberOfReps: 10, weight: 55 },
@@ -27,8 +27,8 @@ export const workoutsMockData: Workout[] = [
         ],
       },
       {
-        name: "Overhead Press",
-        notes: "Control the bar on the way down",
+        name: 'Overhead Press',
+        notes: 'Control the bar on the way down',
 
         reps: [
           { numberOfReps: 10, weight: 40 },
@@ -39,14 +39,14 @@ export const workoutsMockData: Workout[] = [
     ],
   },
   {
-    id: "w2",
-    userId: "u1",
-    title: "Pull Day",
-    dayOfWeek: "Tuesday",
+    id: 'w2',
+    userId: 'u1',
+    title: 'Pull Day',
+    dayOfWeek: 'Tuesday',
     exercises: [
       {
-        name: "Deadlift",
-        notes: "Engage lats and keep back straight",
+        name: 'Deadlift',
+        notes: 'Engage lats and keep back straight',
 
         reps: [
           { numberOfReps: 8, weight: 140 },
@@ -56,8 +56,8 @@ export const workoutsMockData: Workout[] = [
         ],
       },
       {
-        name: "Pull-Ups",
-        notes: "Full range of motion, add weight if needed",
+        name: 'Pull-Ups',
+        notes: 'Full range of motion, add weight if needed',
 
         reps: [
           { numberOfReps: 12, weight: 0 },
@@ -67,8 +67,8 @@ export const workoutsMockData: Workout[] = [
         ],
       },
       {
-        name: "Barbell Row",
-        notes: "Avoid momentum, keep back flat",
+        name: 'Barbell Row',
+        notes: 'Avoid momentum, keep back flat',
         reps: [
           { numberOfReps: 10, weight: 60 },
           { numberOfReps: 8, weight: 65 },
@@ -78,14 +78,14 @@ export const workoutsMockData: Workout[] = [
     ],
   },
   {
-    id: "w3",
-    userId: "u1",
-    title: "Leg Day",
-    dayOfWeek: "Wednesday",
+    id: 'w3',
+    userId: 'u1',
+    title: 'Leg Day',
+    dayOfWeek: 'Wednesday',
     exercises: [
       {
-        name: "Back Squats",
-        notes: "Hit parallel or deeper, control descent",
+        name: 'Back Squats',
+        notes: 'Hit parallel or deeper, control descent',
         reps: [
           { numberOfReps: 8, weight: 100 },
           { numberOfReps: 8, weight: 110 },
@@ -94,8 +94,8 @@ export const workoutsMockData: Workout[] = [
         ],
       },
       {
-        name: "Walking Lunges",
-        notes: "Stay upright, push through the heels",
+        name: 'Walking Lunges',
+        notes: 'Stay upright, push through the heels',
         reps: [
           { numberOfReps: 12, weight: 20 },
           { numberOfReps: 12, weight: 25 },
@@ -103,8 +103,8 @@ export const workoutsMockData: Workout[] = [
         ],
       },
       {
-        name: "Leg Press",
-        notes: "Controlled tempo, avoid locking knees",
+        name: 'Leg Press',
+        notes: 'Controlled tempo, avoid locking knees',
         reps: [
           { numberOfReps: 15, weight: 200 },
           { numberOfReps: 12, weight: 210 },
@@ -114,14 +114,14 @@ export const workoutsMockData: Workout[] = [
     ],
   },
   {
-    id: "w4",
-    userId: "u1",
-    title: "Push Day (Variation)",
-    dayOfWeek: "Thursday",
+    id: 'w4',
+    userId: 'u1',
+    title: 'Push Day (Variation)',
+    dayOfWeek: 'Thursday',
     exercises: [
       {
-        name: "Incline Bench Press",
-        notes: "Emphasize upper chest engagement",
+        name: 'Incline Bench Press',
+        notes: 'Emphasize upper chest engagement',
 
         reps: [
           { numberOfReps: 10, weight: 90 },
@@ -131,8 +131,8 @@ export const workoutsMockData: Workout[] = [
         ],
       },
       {
-        name: "Dumbbell Shoulder Press",
-        notes: "Avoid arching lower back",
+        name: 'Dumbbell Shoulder Press',
+        notes: 'Avoid arching lower back',
 
         reps: [
           { numberOfReps: 12, weight: 35 },
@@ -141,8 +141,8 @@ export const workoutsMockData: Workout[] = [
         ],
       },
       {
-        name: "Tricep Dips",
-        notes: "Keep elbows tucked",
+        name: 'Tricep Dips',
+        notes: 'Keep elbows tucked',
 
         reps: [
           { numberOfReps: 15, weight: 0 },
@@ -153,14 +153,14 @@ export const workoutsMockData: Workout[] = [
     ],
   },
   {
-    id: "w5",
-    userId: "u1",
-    title: "Pull Day (Variation)",
-    dayOfWeek: "Friday",
+    id: 'w5',
+    userId: 'u1',
+    title: 'Pull Day (Variation)',
+    dayOfWeek: 'Friday',
     exercises: [
       {
-        name: "Weighted Pull-Ups",
-        notes: "Add weight as strength improves",
+        name: 'Weighted Pull-Ups',
+        notes: 'Add weight as strength improves',
 
         reps: [
           { numberOfReps: 10, weight: 0 },
@@ -169,8 +169,8 @@ export const workoutsMockData: Workout[] = [
         ],
       },
       {
-        name: "Cable Rows",
-        notes: "Focus on squeezing shoulder blades",
+        name: 'Cable Rows',
+        notes: 'Focus on squeezing shoulder blades',
 
         reps: [
           { numberOfReps: 12, weight: 50 },
@@ -182,34 +182,34 @@ export const workoutsMockData: Workout[] = [
     ],
   },
   {
-    id: "w6",
-    userId: "u1",
-    title: "Active Recovery",
-    dayOfWeek: "Saturday",
+    id: 'w6',
+    userId: 'u1',
+    title: 'Active Recovery',
+    dayOfWeek: 'Saturday',
     exercises: [
       {
-        name: "Mobility Work",
-        notes: "Stretch hip flexors and shoulders",
+        name: 'Mobility Work',
+        notes: 'Stretch hip flexors and shoulders',
 
         reps: [{ numberOfReps: 10, weight: 0 }],
       },
       {
-        name: "Light Cardio",
-        notes: "15-20 minutes, moderate pace",
+        name: 'Light Cardio',
+        notes: '15-20 minutes, moderate pace',
 
         reps: [{ numberOfReps: 1, weight: 0 }],
       },
     ],
   },
   {
-    id: "w7",
-    userId: "u1",
-    title: "Rest or Cardio",
-    dayOfWeek: "Sunday",
+    id: 'w7',
+    userId: 'u1',
+    title: 'Rest or Cardio',
+    dayOfWeek: 'Sunday',
     exercises: [
       {
-        name: "Light Jog",
-        notes: "Keep it easy, recover for next week",
+        name: 'Light Jog',
+        notes: 'Keep it easy, recover for next week',
         reps: [{ numberOfReps: 20, weight: 0 }],
       },
     ],

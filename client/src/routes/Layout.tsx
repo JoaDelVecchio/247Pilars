@@ -4,10 +4,10 @@ import Navbar from "../components/NavBar";
 export const MainLayout = () => {
   return (
     <div className="flex h-full w-full flex-col">
-      <header className="h-22 w-full flex bg-white shadow-md  justify-center items-center">
+      <header className="flex h-22 w-full items-center justify-center bg-white shadow-md">
         <Navbar />
       </header>
-      <div className="p-8">
+      <div className="flex flex-grow p-8">
         <Outlet />
       </div>
     </div>

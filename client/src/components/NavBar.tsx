@@ -15,7 +15,7 @@ const Navbar = () => {
   // Function to update the background position
   const updateOffset = () => {
     const activeLink = document.querySelector(
-      ".nav-item.active"
+      ".nav-item.active",
     ) as HTMLElement;
     if (activeLink) {
       setOffset(activeLink.offsetLeft); // Update the offsetLeft of the active link
@@ -37,14 +37,14 @@ const Navbar = () => {
     <nav className="relative w-full rounded-xl">
       {/* Animated background */}
       <div
-        className="absolute top-0 h-10 bg-black rounded-full transition-all duration-300 shadow-md"
+        className="absolute top-0 h-10 rounded-full bg-black shadow-md transition-all duration-300"
         style={{
           width: "7rem", // Match the link width
           transform: `translateX(${offset}px)`,
         }}
       ></div>
 
-      <ul className="font-bold flex justify-between px-6 relative z-10">
+      <ul className="relative z-10 flex justify-between px-6 font-bold">
         {[
           { name: "Fitness", to: "/fitness" },
           { name: "247Pillars", to: "/" },
