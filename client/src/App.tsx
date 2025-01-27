@@ -12,28 +12,33 @@ import Login from './routes/AuthPages/Login';
 const App = () => {
   const router = createBrowserRouter([
     {
-      path: '/profile/register',
-      element: <Register />,
-    },
-    {
-      path: 'profile/login',
-      element: <Login />,
+      path: '/profile',
+      children: [
+        {
+          path: '/profile/register',
+          element: <Register />,
+        },
+        {
+          path: '/profile/login',
+          element: <Login />,
+        },
+      ],
     },
     {
       path: '/',
       element: <MainLayout />,
       children: [
-        { path: '/', element: <Home /> },
+        { path: '', element: <Home /> },
         {
-          path: '/fitness',
+          path: 'fitness',
           element: <FitnessNavBar />,
           children: [
             {
-              path: '/fitness/progress',
+              path: 'progress',
               element: <FitnessProgressPage />,
             },
-            { path: '/fitness/workouts', element: <FitnessWorkoutsPage /> },
-            { path: '/fitness/fuel', element: <FitnessFuelPage /> },
+            { path: 'workouts', element: <FitnessWorkoutsPage /> },
+            { path: 'fuel', element: <FitnessFuelPage /> },
           ],
         },
         { path: '/plan', element: <PlanPage /> },

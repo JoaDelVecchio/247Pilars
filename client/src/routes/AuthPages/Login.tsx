@@ -67,7 +67,7 @@ const Login = () => {
           />
           <input
             className="w-full rounded-xl border border-gray-300 bg-white p-3 font-medium shadow-lg duration-300 hover:scale-105 focus:outline-none focus:ring-1 focus:ring-gray-400"
-            type="text"
+            type="password"
             name="password"
             required
             placeholder="Password"

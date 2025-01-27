@@ -1,4 +1,4 @@
-import { createContext, useState, ReactNode } from 'react';
+import { createContext, useState, ReactNode, useEffect } from 'react';
 
 // Define the user type or use an appropriate interface for your app
 type User = {
@@ -19,6 +19,11 @@ const AuthContextProvider = ({ children }: { children: ReactNode }) => {
   });
 
   const updateUser = (updatedUser: User) => setCurrentUser(updatedUser);
+
+  useEffect(
+    () => localStorage.setItem('user', JSON.stringify(currentUser)),
+    [currentUser]
+  );
 
   return (
     <AuthContext.Provider value={{ currentUser, updateUser }}>

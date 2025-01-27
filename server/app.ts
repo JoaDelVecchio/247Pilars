@@ -21,9 +21,11 @@ app.use(cors({
 //Parser Middleware
 app.use(express.json());
 app.use(cookieParser())
+
 //Routes
 app.use('/api/auth',authRouter)
 app.use('/api/fitness/workouts',workoutRouter)
+
 //Error Handler
 app.use(notFound);
 app.use(errorHandler);

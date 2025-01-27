@@ -32,8 +32,8 @@ const WorkoutCard = ({ workout }: { workout: WorkoutType }) => {
 
             {/*Reps */}
             <div className="flex flex-col gap-2 p-2">
-              {exercise.reps.map((rep) => (
-                <div className="flex items-center justify-center gap-4">
+              {exercise.reps.map((rep, i) => (
+                <div key={i} className="flex items-center justify-center gap-4">
                   <span className="flex-grow rounded-lg bg-black py-1 text-center text-sm font-semibold text-white">
                     {' '}
                     {rep.numberOfReps}
