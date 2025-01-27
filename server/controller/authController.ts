@@ -28,6 +28,7 @@ export const register =async (req:Request,res:Response,next:NextFunction)=>{
 export const login = async(req:Request,res:Response,next:NextFunction)=>{
     const {username,password} = req.body
     try {
+
         if(!username || !password) throw new AppError("Missing fields, try again!",400);
         
         const user = await User.findOne({username});

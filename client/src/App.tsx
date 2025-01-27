@@ -12,11 +12,11 @@ import Login from './routes/AuthPages/Login';
 const App = () => {
   const router = createBrowserRouter([
     {
-      path: '/profile/auth/register',
+      path: '/profile/register',
       element: <Register />,
     },
     {
-      path: 'profile/auth/login',
+      path: 'profile/login',
       element: <Login />,
     },
     {
