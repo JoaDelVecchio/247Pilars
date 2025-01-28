@@ -8,14 +8,14 @@ export const getWorkouts = async (req:IAuthRequest,res:Response,next:NextFunctio
 
     try {
         const userId = req.userId
-        if(!userId) throw new AppError('Missing Identifier', 500);
+        if(!userId) throw new AppError('Missing Identifier', 400);
 
         const workouts = await Workout.find({userId});
 
         if(!workouts.length) throw new AppError("No Workouts found for this user",404)
         
         console.log("Fetched workouts succesfully",workouts)
-        res.status(200).json(workouts)
+        res.status(200).json({workouts})
 
     } catch (error) {
         next(error);
@@ -26,7 +26,7 @@ export const getWorkout = async(req:IAuthRequest,res:Response,next:NextFunction)
     try {
         const id = req.params.id
 
-        const workout = await Workout.find({_id:id})
+        const workout = await Workout.findById({_id:id})
 
         if(!workout) throw new AppError("Workout not found",404)
 
@@ -75,7 +75,7 @@ export const updateWorkout = async (req:IAuthRequest,res:Response,next:NextFunct
     try {
         const id = req.params.id;
 
-        if(!id) throw new AppError("Missing identifier",500);
+        if(!id) throw new AppError("Missing identifier",400);
 
         const {title,dayOfWeek,exercises} = req.body;
 
@@ -93,7 +93,7 @@ export const updateWorkout = async (req:IAuthRequest,res:Response,next:NextFunct
             {new:true}
         )
 
-        if(!updateWorkout) throw new AppError('Workout not found',404);
+        if(!updatedWorkout) throw new AppError('Workout not found',404);
 
         console.log("Updated workout",updatedWorkout);
         res.status(200).json(updatedWorkout)
@@ -106,9 +106,9 @@ export const deleteWorkout = async (req:IAuthRequest,res:Response,next:NextFunct
     try {
         const id = req.params.id;
 
-        if(!id) throw new AppError("Missing identifier",500);
+        if(!id) throw new AppError("Missing identifier",400);
 
-        const deletedWorkout = await Workout.findByIdAndDelete(id,{new:true})
+        const deletedWorkout = await Workout.findByIdAndDelete(id)
 
         if(!deletedWorkout) throw new AppError("Could not find that workout",404);
 
