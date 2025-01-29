@@ -10,7 +10,6 @@ const errorHandler = (err:unknown,req:Request,res:Response,next:NextFunction)=>{
 
     console.error(`Unexpected error:`,err);
     res.status(500).json({message:"Internal Server Error"});
-    next();
 }
 
 export default errorHandler;

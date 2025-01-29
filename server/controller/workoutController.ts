@@ -26,12 +26,12 @@ export const getWorkout = async(req:IAuthRequest,res:Response,next:NextFunction)
     try {
         const id = req.params.id
 
-        const workout = await Workout.findById({_id:id})
+        const workout = await Workout.findById({id})
 
         if(!workout) throw new AppError("Workout not found",404)
 
         console.log("Workout found",workout)
-        res.status(200).json(workout)
+        res.status(200).json({workout})
         
     } catch (error) {
         next(error)
@@ -62,7 +62,7 @@ export const createWorkout = async (req:IAuthRequest,res:Response,next:NextFunct
    const savedWorkout = await newWorkout.save()
 
    console.log("Workout postsaving", savedWorkout)
-   res.status(201).json(savedWorkout)
+   res.status(201).json({savedWorkout})
         
     } catch (error) {
         next(error);
@@ -96,7 +96,7 @@ export const updateWorkout = async (req:IAuthRequest,res:Response,next:NextFunct
         if(!updatedWorkout) throw new AppError('Workout not found',404);
 
         console.log("Updated workout",updatedWorkout);
-        res.status(200).json(updatedWorkout)
+        res.status(200).json({updatedWorkout})
         
     } catch (error) {
         next(error);
