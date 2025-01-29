@@ -21,7 +21,7 @@ const FitnessWorkoutsPage = () => {
         }
 
         const workoutsMockData = await response.json();
-
+        console.log(workoutsMockData);
         setWorkoutsToShow(
           view === 'week'
             ? workoutsMockData

@@ -15,11 +15,11 @@ const App = () => {
       path: '/profile',
       children: [
         {
-          path: '/profile/register',
+          path: 'register', // ✅ Corrected path
           element: <Register />,
         },
         {
-          path: '/profile/login',
+          path: 'login', // ✅ Corrected path
           element: <Login />,
         },
       ],
@@ -33,15 +33,12 @@ const App = () => {
           path: 'fitness',
           element: <FitnessNavBar />,
           children: [
-            {
-              path: 'progress',
-              element: <FitnessProgressPage />,
-            },
+            { path: 'progress', element: <FitnessProgressPage /> },
             { path: 'workouts', element: <FitnessWorkoutsPage /> },
             { path: 'fuel', element: <FitnessFuelPage /> },
           ],
         },
-        { path: '/plan', element: <PlanPage /> },
+        { path: 'plan', element: <PlanPage /> },
       ],
     },
   ]);
