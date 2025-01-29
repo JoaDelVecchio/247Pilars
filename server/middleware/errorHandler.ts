@@ -13,3 +13,4 @@ const errorHandler = (err:unknown,req:Request,res:Response,next:NextFunction)=>{
 }
 
 export default errorHandler;
+

@@ -1,19 +1,40 @@
 import DisplayWeekOrDayWorkout from './DisplayWeekOrDayWorkouts';
-import { workoutsMockData } from '../../../mockData/data';
 import Workouts from './Workouts';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import WorkoutCard from './WorkoutCard';
 import { Workout } from '../../../types/types';
+import { API_BASE_URL } from '../../../config/apiUrl';
 
 const FitnessWorkoutsPage = () => {
   const [view, setView] = useState<'week' | 'today'>('week');
   const today = new Date().toLocaleDateString('en-US', { weekday: 'long' });
-
+  const [workoutsToShow, setWorkoutsToShow] = useState([]);
   // Filter workouts based on the view
-  const workoutsToShow =
-    view === 'week'
-      ? workoutsMockData
-      : workoutsMockData.find((workout) => workout.dayOfWeek === today);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(`${API_BASE_URL}/fitness/workouts`);
+
+        if (!response.ok) {
+          const errorData = await response.json();
+          throw new Error(errorData.message);
+        }
+
+        const workoutsMockData = await response.json();
+
+        setWorkoutsToShow(
+          view === 'week'
+            ? workoutsMockData
+            : workoutsMockData.filter(
+                (workout: Workout) => workout.dayOfWeek === today
+              )
+        );
+      } catch (error) {
+        console.error('placeholder error');
+      }
+    };
+    fetchData();
+  }, []);
 
   return workoutsToShow ? (
     <div className="flex w-full flex-col items-center">
@@ -21,7 +42,7 @@ const FitnessWorkoutsPage = () => {
       {view === 'week' ? (
         <Workouts workouts={workoutsToShow as Workout[]} />
       ) : (
-        <WorkoutCard workout={workoutsToShow as Workout} />
+        <WorkoutCard workout={workoutsToShow as unknown as Workout} />
       )}
     </div>
   ) : (
