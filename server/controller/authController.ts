@@ -1,7 +1,7 @@
 import { Request,Response,NextFunction } from "express"
 import { JWT_SECRET_KEY } from "../config";
 import AppError from "../lib/AppError";
-import bcrypt from 'bcrypt'
+import bcrypt from 'bcryptjs'
 import User from "../models/User";
 import jwt from 'jsonwebtoken'
 

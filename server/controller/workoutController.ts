@@ -2,7 +2,7 @@ import { Response,NextFunction, application } from "express";
 import { IAuthRequest } from "../types/express";
 import AppError from "../lib/AppError";
 import { Workout } from "../models/Workout";
-import mongoose from "mongoose";
+
 
 export const getWorkouts = async (req:IAuthRequest,res:Response,next:NextFunction)=>{
 
