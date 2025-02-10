@@ -44,7 +44,12 @@ const Login = () => {
     }
   };
 
-  if (loading) return <p>Loading...</p>;
+  if (loading)
+    return (
+      <p className="margin-auto animate-pulse text-center font-bold text-gray-300">
+        Loading...
+      </p>
+    );
 
   return (
     <div className="flex h-full w-full items-center justify-center p-10">
