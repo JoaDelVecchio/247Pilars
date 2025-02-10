@@ -8,7 +8,7 @@ export const getWorkouts = async (req:IAuthRequest,res:Response,next:NextFunctio
 
     try {
         const userId = req.userId
-        if(!userId) throw new AppError('Missing Identifier', 400);
+
 
         const workouts = await Workout.find({userId});
 
@@ -42,7 +42,7 @@ export const createWorkout = async (req:IAuthRequest,res:Response,next:NextFunct
     try {
     const userId = req.userId
     
-    if(!userId) throw new AppError('Missing Identifier', 500);
+
 
 
 
