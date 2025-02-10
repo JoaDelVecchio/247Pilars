@@ -14,15 +14,15 @@ const app = express();
 // Connect to DB
 connectDB();
 
+//Parser Middleware
+app.use(express.json());
+app.use(cookieParser())
 //Cors Policy
 app.use(cors({
     origin:CLIENT_ORIGIN_URL,
     credentials:true
 }))
 
-//Parser Middleware
-app.use(express.json());
-app.use(cookieParser())
 
 //Routes
 app.use('/api/auth',authRouter)
