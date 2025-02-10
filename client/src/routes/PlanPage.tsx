@@ -32,7 +32,7 @@ const PlanPage = () => {
   };
 
   return (
-    <div className="flex flex-col justify-center p-8">
+    <div className="m-auto flex flex-col items-center justify-center p-8">
       {/* Header */}
       <h1 className="text-center text-4xl font-bold text-gray-800">
         🎯 2025 Game Plan
