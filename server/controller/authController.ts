@@ -43,7 +43,7 @@ export const login = async (req: Request, res: Response, next: NextFunction) => 
         res.cookie('token', token, {
             httpOnly: true,
             secure: process.env.NODE_ENV === 'production', // ✅ Only secure in production
-            sameSite: 'None' as 'None' // ✅ Required for cross-origin authentication
+            sameSite: 'none' as 'none' // ✅ Required for cross-origin authentication
         });
 
         res.status(200).json(user);
