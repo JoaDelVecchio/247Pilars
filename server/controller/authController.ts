@@ -41,7 +41,12 @@ export const login = async(req:Request,res:Response,next:NextFunction)=>{
         const age = 7*24*60*60*1000;
         const token = jwt.sign({id:user._id}, JWT_SECRET_KEY, {expiresIn:age})
 
-        res.cookie('token',token,{httpOnly:true,maxAge:age}).status(200).json(user);
+        res.cookie('token', token, {
+            httpOnly: true,
+            secure: true, 
+        
+        
+        }).status(200).json(user);
         console.log("Logged in succesfully")
 
     } catch (error) {
