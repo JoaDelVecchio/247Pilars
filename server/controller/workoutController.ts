@@ -8,7 +8,7 @@ export const getWorkouts = async (req:IAuthRequest,res:Response,next:NextFunctio
 
     try {
         const userId = req.userId
-
+        
 
         const workouts = await Workout.find({userId});
 
