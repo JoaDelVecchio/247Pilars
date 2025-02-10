@@ -19,7 +19,7 @@ const images = [
 
 const Home = () => {
   return (
-    <div className="p-8">
+    <div className="flex items-center justify-center p-8">
       <h1 className="text-center text-4xl font-bold text-gray-800">
         🔥 The 247 Mindset
       </h1>
