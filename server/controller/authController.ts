@@ -25,33 +25,35 @@ export const register =async (req:Request,res:Response,next:NextFunction)=>{
     }
 }
 
-export const login = async(req:Request,res:Response,next:NextFunction)=>{
-    const {username,password} = req.body
+export const login = async (req: Request, res: Response, next: NextFunction) => {
+    const { username, password } = req.body;
     try {
-        if(!username || !password) throw new AppError("Missing fields, try again!",400);
+        if (!username || !password) throw new AppError("Missing fields, try again!", 400);
         
-        const user = await User.findOne({username});
+        const user = await User.findOne({ username });
+        if (!user) throw new AppError("Invalid Credentials", 403);
 
-        if(!user) throw new AppError("Invalid Credentials",403);
+        const isValidPassword = await bcrypt.compare(password, user.password);
+        if (!isValidPassword) throw new AppError("Invalid Credentials", 403);
 
-        const isValidPassword = await bcrypt.compare(password,user.password);
- 
-        if (!isValidPassword) throw new AppError("Invalid Credentials",403);
+        const age = 7 * 24 * 60 * 60 * 1000; // 7 days expiration
+        const token = jwt.sign({ id: user._id }, JWT_SECRET_KEY, { expiresIn: age });
 
-        const age = 7*24*60*60*1000;
-        const token = jwt.sign({id:user._id}, JWT_SECRET_KEY, {expiresIn:age})
-
+        // ✅ FIX: Allow the cookie to be accessible cross-site
         res.cookie('token', token, {
             httpOnly: true,
-            secure: process.env.NODE_ENV === 'production', 
-            
-          }).status(200).json(user);
-        console.log("Logged in succesfully")
+            secure: process.env.NODE_ENV === 'production', // ✅ Only secure in production
+            sameSite: 'none' as 'none' // ✅ Required for cross-origin authentication
+        });
+
+        res.status(200).json(user);
+        console.log("✅ Logged in successfully");
 
     } catch (error) {
-        next(error)
+        next(error);
     }
-}
+};
+
 export const logout = async(req:Request,res:Response,next:NextFunction)=>{
     try {
         console.log("Logout sucessfull");
