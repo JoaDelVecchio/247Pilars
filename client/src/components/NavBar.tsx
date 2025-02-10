@@ -46,7 +46,7 @@ const Navbar = () => {
 
       <ul className="relative z-10 flex justify-between px-6 font-bold">
         {[
-          { name: 'Fitness', to: '/fitness' },
+          { name: 'Fitness', to: '/fitness/progress' },
           { name: '247Pilars', to: '/' },
           { name: 'Plan', to: '/plan' },
         ].map((link) => (

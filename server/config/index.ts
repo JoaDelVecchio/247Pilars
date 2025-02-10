@@ -3,7 +3,7 @@ dotenv.config()
 
 if (!process.env.PORT || !process.env.CLIENT_ORIGIN_URL || !process.env.MONGO_URI || !process.env.JWT_SECRET_KEY)
 {
-    console.error("Missing required env variables")
+    console.error("Missing required env variables",process.env.MONGO_URI)
     process.exit(1)
 }
 

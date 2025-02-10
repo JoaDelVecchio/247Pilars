@@ -4,6 +4,8 @@ import cookieParser from 'cookie-parser'
 import { CLIENT_ORIGIN_URL, PORT } from './config';
 import connectDB from './config/db';
 import authRouter from './routes/authRoute';
+import progressRouter from './routes/progressRoutes'
+import fuelRouter from './routes/fuelRoute'
 import workoutRouter from './routes/workoutRoute'
 import errorHandler from './middleware/errorHandler';
 import notFound from './middleware/notFound';
@@ -25,6 +27,8 @@ app.use(cookieParser())
 //Routes
 app.use('/api/auth',authRouter)
 app.use('/api/fitness/workouts',workoutRouter)
+app.use('/api/fitness/fuel',fuelRouter)
+app.use('/api/fitness/progress',progressRouter)
 
 //Error Handler
 app.use(notFound);

@@ -6,7 +6,7 @@ const WorkoutCard = ({ workout }: { workout: WorkoutType }) => {
       {/* Workout Title */}
       <div className="mb-4 flex items-center justify-between border-b-2 pb-2">
         <h3 className="text-xl font-bold text-black">
-          {workout.dayOfWeek} - {workout.title}{' '}
+          {workout.dayOfWeek} - {workout.title}
         </h3>
         <button className="cursor-pointer rounded-xl border-2 bg-white px-2 font-medium shadow-lg duration-300 hover:scale-105 hover:border-black hover:bg-black hover:font-bold hover:text-white">
           Edit
@@ -32,18 +32,15 @@ const WorkoutCard = ({ workout }: { workout: WorkoutType }) => {
 
             {/*Reps */}
             <div className="flex flex-col gap-2 p-2">
-              {exercise.reps.map((rep, i) => (
-                <div key={i} className="flex items-center justify-center gap-4">
-                  <span className="flex-grow rounded-lg bg-black py-1 text-center text-sm font-semibold text-white">
-                    {' '}
-                    {rep.numberOfReps}
-                  </span>{' '}
-                  x{' '}
-                  <span className="flex-grow rounded-lg bg-black py-1 text-center text-sm font-semibold text-white">
-                    {rep.weight}kg
-                  </span>
-                </div>
-              ))}
+              <div className="flex items-center justify-center gap-4">
+                <span className="flex-grow rounded-lg bg-black py-1 text-center text-sm font-semibold text-white">
+                  {exercise.reps.numberOfReps}
+                </span>{' '}
+                x{' '}
+                <span className="flex-grow rounded-lg bg-black py-1 text-center text-sm font-semibold text-white">
+                  {exercise.reps.weight}kg
+                </span>
+              </div>
             </div>
           </li>
         ))}

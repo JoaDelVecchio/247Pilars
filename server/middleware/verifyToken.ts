@@ -7,7 +7,6 @@ import jwt from 'jsonwebtoken'
 const verifyToken = (req:Request,res:Response,next:NextFunction)=>{
     try {
         const token = req.cookies.token;
-
         if(!token) throw new AppError('You are not authenticated',403);
 
 jwt.verify(token,JWT_SECRET_KEY,(err:any,payload:any)=>{

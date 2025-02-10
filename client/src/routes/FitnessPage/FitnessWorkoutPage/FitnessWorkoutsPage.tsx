@@ -8,12 +8,17 @@ import { API_BASE_URL } from '../../../config/apiUrl';
 const FitnessWorkoutsPage = () => {
   const [view, setView] = useState<'week' | 'today'>('week');
   const today = new Date().toLocaleDateString('en-US', { weekday: 'long' });
-  const [workoutsToShow, setWorkoutsToShow] = useState([]);
-  // Filter workouts based on the view
+  const [workoutsToShow, setWorkoutsToShow] = useState<Workout[]>([]);
+
+  // Fetch workouts
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(`${API_BASE_URL}/fitness/workouts`);
+        const response = await fetch(`${API_BASE_URL}/fitness/workouts`, {
+          method: 'GET',
+          credentials: 'include',
+          headers: { 'Content-Type': 'application/json' },
+        });
 
         if (!response.ok) {
           const errorData = await response.json();
@@ -21,28 +26,29 @@ const FitnessWorkoutsPage = () => {
         }
 
         const workoutsMockData = await response.json();
-        console.log(workoutsMockData);
+
         setWorkoutsToShow(
           view === 'week'
-            ? workoutsMockData
-            : workoutsMockData.filter(
+            ? workoutsMockData.workouts
+            : workoutsMockData.workouts.filter(
                 (workout: Workout) => workout.dayOfWeek === today
-              )
+              ) //
         );
       } catch (error) {
-        console.error('placeholder error');
+        console.error((error as Error).message || 'Failed to fetch workouts');
       }
     };
-    fetchData();
-  }, []);
 
-  return workoutsToShow ? (
+    fetchData();
+  }, [view]); //
+
+  return workoutsToShow.length > 0 ? (
     <div className="flex w-full flex-col items-center">
       <DisplayWeekOrDayWorkout view={view} setView={setView} />
       {view === 'week' ? (
-        <Workouts workouts={workoutsToShow as Workout[]} />
+        <Workouts workouts={workoutsToShow} />
       ) : (
-        <WorkoutCard workout={workoutsToShow as unknown as Workout} />
+        <WorkoutCard workout={workoutsToShow[0]} /> //
       )}
     </div>
   ) : (

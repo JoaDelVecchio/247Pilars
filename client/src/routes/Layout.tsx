@@ -11,8 +11,8 @@ export const MainLayout = () => {
   return !currentUser ? (
     <Navigate to="/profile/login" />
   ) : (
-    <div className="flex h-full w-full flex-col">
-      <header className="h-22 flex w-full items-center justify-center bg-white shadow-md">
+    <div className="m-auto flex h-full w-full flex-col">
+      <header className="min-h-22 flex w-full items-center justify-center bg-white shadow-md">
         <Navbar />
       </header>
       <div className="flex flex-grow p-8">
