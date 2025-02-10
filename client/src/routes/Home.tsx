@@ -19,7 +19,7 @@ const images = [
 
 const Home = () => {
   return (
-    <div className="flex flex-grow items-start justify-center">
+    <div className="max-w-5/6 m-auto flex flex-grow items-start justify-center">
       <div className="flex flex-col items-center justify-center p-8">
         <h1 className="text-center text-4xl font-bold text-gray-800">
           🔥 The 247 Mindset

@@ -3,7 +3,7 @@ import WorkoutCard from './WorkoutCard';
 
 const Workouts = ({ workouts }: { workouts: WorkoutType[] }) => {
   return (
-    <div className="mt-10 flex flex-wrap gap-12">
+    <div className="mt-10 flex flex-wrap justify-center gap-12">
       {workouts.map((workout, i) => (
         <WorkoutCard key={workout._id || i} workout={workout} />
       ))}
