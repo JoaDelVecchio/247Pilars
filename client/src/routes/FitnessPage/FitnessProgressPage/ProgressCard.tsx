@@ -14,7 +14,7 @@ import { ProgressData } from '../../../types/types';
 const ProgressCard = ({ progress }: { progress: ProgressData }) => {
   if (!progress) {
     return (
-      <p className="margin-auto animate-pulse text-center font-bold text-gray-300">
+      <p className="m-auto animate-pulse text-center font-bold text-gray-300">
         Loading progress...
       </p>
     );

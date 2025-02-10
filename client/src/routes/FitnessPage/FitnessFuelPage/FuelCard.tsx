@@ -1,7 +1,7 @@
 const FuelCard = ({ fuelPlan }: { fuelPlan: any }) => {
   if (!fuelPlan) {
     return (
-      <p className="margin-auto animate-pulse text-center font-bold text-gray-300">
+      <p className="m-auto animate-pulse text-center font-bold text-gray-300">
         Loading fuel plan...
       </p>
     );
