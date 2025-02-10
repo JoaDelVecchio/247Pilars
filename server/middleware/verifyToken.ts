@@ -4,22 +4,26 @@ import { IAuthRequest } from "../types/express";
 import AppError from "../lib/AppError";
 import jwt from 'jsonwebtoken'
 
-const verifyToken = (req:Request,res:Response,next:NextFunction)=>{
+const verifyToken = (req: Request, res: Response, next: NextFunction) => {
     try {
-        const token = req.cookies.token;
-        if(!token) throw new AppError('You are not authenticated',403);
+        console.log("🔍 Headers Received:", req.headers);
+        console.log("🍪 Cookies Received:", req.cookies);
 
-jwt.verify(token,JWT_SECRET_KEY,(err:any,payload:any)=>{
-            if(err) {
-                console.error(`Error: ${err}`)
-                throw new AppError('Token not valid',403)
+        const token = req.cookies.token;
+        if (!token) throw new AppError('You are not authenticated', 403);
+
+        jwt.verify(token, JWT_SECRET_KEY, (err: any, payload: any) => {
+            if (err) {
+                console.error(`❌ Token Verification Failed: ${err}`);
+                throw new AppError('Token not valid', 403);
             }
-            (req as IAuthRequest).userId  = payload.id;
+            (req as IAuthRequest).userId = payload.id;
             next();
-        })
+        });
     } catch (error) {
-        next(error)
+        next(error);
     }
-}
+};
+
 
 export default verifyToken

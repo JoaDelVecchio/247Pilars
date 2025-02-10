@@ -43,10 +43,9 @@ export const login = async(req:Request,res:Response,next:NextFunction)=>{
 
         res.cookie('token', token, {
             httpOnly: true,
-            secure: true, 
-        
-        
-        }).status(200).json(user);
+            secure: process.env.NODE_ENV === 'production', 
+            
+          }).status(200).json(user);
         console.log("Logged in succesfully")
 
     } catch (error) {
