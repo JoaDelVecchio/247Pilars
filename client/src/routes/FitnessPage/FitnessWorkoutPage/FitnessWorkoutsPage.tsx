@@ -53,9 +53,7 @@ const FitnessWorkoutsPage = () => {
     </div>
   ) : (
     <div className="flex flex-grow items-center justify-center">
-      <button className="cursor-pointer rounded-full border-2 px-6 py-3 text-4xl font-medium duration-300 hover:scale-105 hover:bg-black hover:font-bold hover:text-white">
-        Add my first workout
-      </button>
+      <p className="m-auto animate-pulse font-bold text-gray-300">Loading...</p>
     </div>
   );
 };
