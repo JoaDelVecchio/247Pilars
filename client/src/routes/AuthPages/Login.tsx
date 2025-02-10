@@ -36,7 +36,7 @@ const Login = () => {
       const user = await response.json();
       updateUser(user);
       console.log('Login Successful');
-      navigate('/fitness/progress');
+      navigate('/');
     } catch (error: unknown) {
       setError((error as Error).message);
     } finally {
