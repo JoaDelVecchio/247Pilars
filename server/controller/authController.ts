@@ -42,8 +42,8 @@ export const login = async (req: Request, res: Response, next: NextFunction) => 
         // ✅ FIX: Allow the cookie to be accessible cross-site
         res.cookie('token', token, {
             httpOnly: true,
-            secure: process.env.NODE_ENV === 'production', // ✅ Only secure in production
-            sameSite: 'none' as 'none' // ✅ Required for cross-origin authentication
+            secure: process.env.NODE_ENV === 'production', 
+            sameSite: 'none' as 'none' // 
         });
 
         res.status(200).json(user);
